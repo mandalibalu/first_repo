@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "dsznajder.es7-react-js-snippets",
+    "xabikos.ReactSnippets",
+    "msjsdiag.debugger-for-chrome",
+    "bradlc.vscode-tailwindcss",
+    "paulmolluzzo.convert-css-in-js",
+    "waderyan.gitblame",
+    "eamodio.gitlens",
+    "ms-vscode.vscode-typescript-next"
+  ]
+}
