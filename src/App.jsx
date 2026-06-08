@@ -1,41 +1,26 @@
-import { useState, useEffect } from "react";
-
-import Form from "./Form";
+import { blogPosts, blogInfo } from "./blog";
 import Header from "./Header";
-import StudentList from "./StudentList"
-
-// HTTP VERBS: GET, POST, PUT, PATCH, DELETE
-
-// CRUD - Creating, Reading, Updating, Deleting
-
-// GET - Reading
-// POST - Creating
-// PUT/PATCH - Updating
-// DELETE - Deleting
-
-const studentsEndpoint = "http://localhost:3000/students"
+import Navigation from "./Navigation";
+import BlogList from "./BlogList";
+import Footer from "./Footer";
 
 export default function App() {
-  const [students, setStudents] = useState([]);
-  
-  async function fetchStudents() {
-    const response = await fetch(studentsEndpoint);
-    const students = await response.json();
-    setStudents(students)
-  } 
+  {/* Extract unique categories from blog posts */}
+  const categories = [...new Set(blogPosts.map((post) => post.category))];
 
-  useEffect(() => {
-    fetchStudents();
-  }, [])
-  
   return (
     <div className="App">
-      {/* Header component responsible for showing the header of the app  */}
-      <Header />
-      {/* The Form component will be responsible for adding a new student */}
-      <Form setStudents={setStudents} />
-      {/* Create a student component responsible for displaying the students  */}
-      <StudentList students={students} setStudents={setStudents}/>
+      {/* Header component - displays blog title and tagline */}
+      <Header title={blogInfo.title} tagline={blogInfo.tagline} />
+      
+      {/* Navigation component - links to categories */}
+      <Navigation categories={categories} />
+      
+      {/* BlogList component - displays all blog posts */}
+      <BlogList posts={blogPosts} />
+      
+      {/* Footer component - copyright and info */}
+      <Footer author={blogInfo.author} />
     </div>
   );
 }

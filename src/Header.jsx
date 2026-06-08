@@ -1,8 +1,10 @@
-export default function Header() {
+export default function Header({ title, tagline }) {
   return (
-    <div>
-      <h1>Welcome To Flatiron School</h1>
-      <h2>GenPact Student Roster</h2>
-    </div>
+    <header className="header">
+      <div className="header-content">
+        <h1 className="blog-title">{title}</h1>
+        <p className="blog-tagline">{tagline}</p>
+      </div>
+    </header>
   );
 }
